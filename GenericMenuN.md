@@ -205,5 +205,124 @@ Use Unity's built-in icons:
 - **Items not appearing**: Check your grouping scopes are properly closed
 - **Performance issues**: Avoid extremely deep menu hierarchies
 
-## License
-[MIT License](https://opensource.org/licenses/MIT)
+
+
+
+
+
+
+
+
+
+
+Here's how you can document the `AppendType` enum in detail with an expandable section in your GitHub Markdown:
+
+# GenericMenuN for Unity3D
+
+## Menu Layering System
+
+`GenericMenuN` features an advanced layering system that allows for complex menu hierarchies. This is controlled through the `AppendType` enum when showing menus.
+
+<details>
+<summary><b>📚 AppendType Detailed Explanation (Click to expand)</b></summary>
+
+### `AppendType` Enum Values
+
+#### `closeAllOtherMenus` (Default Behavior)
+```csharp
+menu.Show(GenericMenuN.AppendType.closeAllOtherMenus);
+```
+- **Behavior**: Closes all existing menu windows before opening the new one
+- **Use Case**: When you want a clean slate (like Unity's default GenericMenu)
+- **Visualization**:
+  ```
+  [Main Window] → [New Menu]  // Old menus are closed
+  ```
+
+#### `addToSameLevel`
+```csharp
+menu.Show(GenericMenuN.AppendType.addToSameLevel);
+```
+- **Behavior**:
+  - Keeps existing menus at the same level
+  - Opens new menu at current level
+  - Closing higher levels when focusing lower ones
+- **Use Case**: Creating alternative options at the same depth
+- **Visualization**:
+  ```
+  [Main Window] → [Menu A]
+                → [Menu B]  // Both at same level
+  ```
+
+#### `addToNextLevel`
+```csharp
+menu.Show(GenericMenuN.AppendType.addToNextLevel);
+```
+- **Behavior**:
+  - Opens menu at next depth level (+1)
+  - Maintains parent-child relationship
+  - Auto-closes when parent loses focus
+- **Use Case**: Creating drill-down menus
+- **Visualization**:
+  ```
+  [Main Window] → [Menu 1] → [Submenu 1.1]
+                            → [Submenu 1.2]
+  ```
+
+### Key Behaviors
+1. **Focus Changes**:
+   - Focusing a level 2 window closes all level 3+ windows
+   - Focusing a non-menu window (level -1) closes all menus (unless Shift is held)
+
+2. **Keyboard Navigation**:
+   ```mermaid
+   graph LR
+   A[Level 0] --> B[Level 1]
+   B --> C[Level 2]
+   C --> D[Level 3]
+   ```
+   - Pressing ←/Backspace closes current level
+   - Pressing →/Enter opens submenus
+
+3. **Modifier Keys**:
+   - **Shift**: Maintains menu stack when clicking outside
+   - **Ctrl**: Special behaviors (context-dependent)
+
+### Example Scenarios
+
+**Scenario 1: Simple Menu**
+```csharp
+var menu = new GenericMenuN("Main");
+menu.Show(); // Defaults to closeAllOtherMenus
+```
+
+**Scenario 2: Multi-level Dashboard**
+```csharp
+mainMenu.Show(GenericMenuN.AppendType.closeAllOtherMenus);
+// Later...
+subMenu.Show(GenericMenuN.AppendType.addToNextLevel);
+```
+
+**Scenario 3: Alternative Views**
+```csharp
+view1Menu.Show(GenericMenuN.AppendType.addToSameLevel);
+// User switches to:
+view2Menu.Show(GenericMenuN.AppendType.addToSameLevel);
+```
+
+### Best Practices
+1. Use `addToNextLevel` for hierarchical data
+2. Use `addToSameLevel` for alternative views
+3. Default to `closeAllOtherMenus` for root menus
+4. Limit depth to 3-4 levels for usability
+</details>
+
+## Basic Usage Example
+```csharp
+// Simple menu with submenus
+var mainMenu = new GenericMenuN("Main Menu");
+mainMenu.AddItem("File/New", () => {});
+mainMenu.Show(GenericMenuN.AppendType.addToNextLevel);
+```
+
+This expandable section provides comprehensive documentation while keeping the main documentation clean. The Mermaid diagram and visualization examples help users understand the layering concept visually.
