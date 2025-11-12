@@ -325,4 +325,3 @@ mainMenu.AddItem("File/New", () => {});
 mainMenu.Show(GenericMenuN.AppendType.addToNextLevel);
 ```
 
-This expandable section provides comprehensive documentation while keeping the main documentation clean. The Mermaid diagram and visualization examples help users understand the layering concept visually.
