@@ -1,12 +1,30 @@
-﻿# Function Runner (Tools Constructor)
- *Function Runner is the second and working name*
+﻿# Attention:
+Use online documentation as it might contain most updated info with examples and GIFs:
+https://github.com/Dincrid/Documentations/blob/main/Function%20Runner%20-%20Tools%20Contructor%20-%20Docs/Documentation.md
 
-## User Guide
-
+# Function Runner (Tools Constructor) - User Guide
 **Version:** 1.0  
 **Product:** Function Runner | Tools Constructor  
 **Category:** Unity Editor Extension  
 **Author:** Dincrid Games
+
+
+#  ⚡️ Quick start 
+ Open demo scene. Find "ReadMe" game object. Expand Childs > and follow tutorial guide.
+ Create step by step 3 tools withing 5-10 minutes:
+ 1. **Bookmark Tool** (Allows to save your web-site or local drive paths and open them) 
+ 2. **Notes Tool** ( Notes with messages, object pinging, urgency)
+ 3. **2D World Builder** ( Handles Managing and Drawing 2D-Cubes in 2D-World with different brushes, with different sizes, methods, fillers, generators)
+ ## OR:
+ 1. Open Tool: [Alt] + [R] (Tools>Dincrid Games>Function Runner)
+ 2. Hit [Tab] - Search
+ 3. Search for "TheBookMark" in [Static Methods]
+ 4. Hit Enter to Add method
+ 5. Copy added method several times with: [Ctrl+D] x5
+ 6. **Done!**. Bookmarks tool completed. 
+ Assign the web path like: "www.Google.com" or local: "C:/SomeFolder" or "C:/SomeFolder/SomeFile.txt". Click on big button with method name to jump into the given path
+
+*This is lazy start. I highly recommend to check Example scebe in Example Folder*
 
 ---
 
@@ -24,27 +42,17 @@ No need to write separate Editor scripts or custom UI windows — simply use you
 2. After import, Unity will create a folder:
 Assets/Dincrid Games/Function Runner/
 
-
-
 3. Inside you’ll find:
 - `Editor/ToolsConstructor` – main script files and editor window  
 - `Examples/` – sample methods and demo scene  
 - `Documentation/` – this user guide  
-4. Restart Unity (optional) to ensure all menu items are initialized.
-
 ---
 
 ## 🌈 3. Opening the Tool Window
 
-Go to **Tools → Dincrid → Tools Constructor** in the main menu  
+Go to **Tools → Dincrid → Function Runner** in the main menu  
 or press the default hotkey:
 **Alt + R**
-
-
-
-
-
-You can dock the window anywhere in the Unity Editor layout.
 
 ---
 
@@ -52,23 +60,32 @@ You can dock the window anywhere in the Unity Editor layout.
 
 | Element | Description |
 |----------|--------------|
-| **Toolbar** | Page selector, quick controls, and search bar |
-| **Methods List** | Contains added functions (methods or menu items) |
-| **Parameters Panel** | Displays editable fields for method arguments |
-| **Execution Buttons** | Run ▶, Pin 📌, or Delete ❌ selected method |
-| **Groups/Pages** | Logical sets of methods that act as complete tools |
+| **Page Button** | Shows name of current page. Open **Page Selector** by pressing on it|
+| **Page Selector** | Window for Choosing / Managing / Renaming pages |
+| **Functions List** | Contains added functions (methods or menu items) with  |
+| **Function** | Contain Icon, Target (for non-static), Run Button ▶, Parameters  (for parameter functions) |
+| **Parameters Panel** | Displays editable fields for method arguments. [Ctrl] + [Alt]: Show Names |
+| **Search Panel** | Search by method name or class name. Choose search type |
 
 ---
 
-## ⚙️ 5. Adding Methods
+## 🔎 5. Search and Add Methods:
+Press [Tab]
+You can search by:
+1. Menu Item name
+2. Static Method Name: 
+*have to be public method in public class* 
+3. Non Static-Method Name: 
+*have to be public method in public class*
+4. Class name: 
+*This type of search will add public child methods of this class. Class have to be derieved from UnityObject. Like: Scriptable Object or MonoBehaviour etc..*
 
-1. Click **Add Method** (top-left button).  
-2. Select a class and method from your project assembly.  
-   - Static and non-static methods are supported.  
-3. If the method has parameters, the parameter editor will appear automatically.  
-4. Click **Apply** to save it in the current group.  
 
-You can also drag and reorder methods intuitively within the list.
+Use [Alt] + [WASD] to navigate through search results and search type
+[Enter] - Add
+[Ctrl] + [Enter] - Run
+[Ctrl] + [Alt] + [Enter] - Add, allow copies
+[Ctrl] + [Alt] + [Shift] + [Enter] - Go To Definition
 
 ---
 
@@ -90,16 +107,18 @@ Parameter values are serialized and saved with the project, so you can reuse the
 
 You can run methods in three ways:
 
-1. Click the ▶ button in the window.  
-2. Use the mouse context menu in the list.  
-3. Assign a hotkey combo (see below).
-
+1. Click the button with function name 
+2. Select Method with arrows and Ctrl + Space
+   Multiple methods selection with [Shift] and execution with [Ctrl]+[Space] also allowed
+3. Use shortcuts : [Space] + [1] / [2] / [3] etc..
+   [Space] + [`] - Execute last functions (Repeat last action)
 **Smart Execution:** the tool remembers the last non-static target and automatically reuses it until you change selection.
 
 ---
 
 ## ⌨️ 8. Hotkeys and Global Shortcuts
-
+Function Runner contains a lot of usefull shortcuts. With this amount of shortcuts you can use tool without a single click just with a left hand.
+All shortcuts can be found in Shortcuts window, by clicking help button at the right bottom corner 
 Tools Constructor supports both local and global shortcuts.
 
 | Shortcut | Action |
@@ -107,8 +126,9 @@ Tools Constructor supports both local and global shortcuts.
 | **Space + [1–10]** | Execute the corresponding method even if the tool window is closed |
 | **Alt + [1–10]** | Switch between pages or groups |
 
-
+These Shortcuts can be changed in settings panel in [Shortcuts] area
 Global shortcuts work everywhere in the Unity Editor.
+
 
 ---
 
@@ -128,7 +148,7 @@ This feature allows you to organize methods by task or project team.
 
 - Keep reusable methods in a dedicated Utility class for clarity.  
 - Use clear names for pages ("Scene Tools", "UI Setup", "Testing").  
-- Save layouts! Tools Constructor remembers your setup per project.
+- Keep public methods in single class so they can be shared / added with ease
 
 ---
 
@@ -136,14 +156,14 @@ This feature allows you to organize methods by task or project team.
 
 **Performance Analyzer:**  
 Measure the execution time of any selected method to identify slow operations and optimize custom tools.  
-Activate it from the context menu and view average runtime in the console or panel.
+Activate it from the context menu of methods and view average time that taken to execute method.
 
 ---
 
 ## 🤝 12. Team Usage and Sharing
+Create a class with a lot of usefull public methods. Share it with your team.
+Now team will be able to add whole class as methods or tool in Function Runner  
 
-All methods can be added from a shared class.  
-Commit the Scriptable Object file in Assets/Dincrid Games/res   in version control to make tools available to the whole team.
 
 ---
 
@@ -170,8 +190,3 @@ Commit the Scriptable Object file in Assets/Dincrid Games/res   in version contr
 **v1.0 – Initial release:** core method execution, groups, parameters, global hotkeys, performance analyzer.
 
 ---
-
-### ✅ Tip
-
-Add sections **Screenshots**, **Quick Start**, and **FAQ** to your PDF version.  
-They are optional for Asset Store but make documentation look complete and professional.
