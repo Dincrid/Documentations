@@ -10,12 +10,18 @@ https://github.com/Dincrid/Documentations/blob/main/Function%20Runner%20-%20Tool
 
 
 #  ⚡️ Quick start 
- Open demo scene. Find "ReadMe" game object. Expand Childs > and follow tutorial guide.
- Create step by step 3 tools withing 5-10 minutes:
- 1. **Bookmark Tool** (Allows to save your web-site or local drive paths and open them) 
- 2. **Notes Tool** ( Notes with messages, object pinging, urgency)
- 3. **2D World Builder** ( Handles Managing and Drawing 2D-Cubes in 2D-World with different brushes, with different sizes, methods, fillers, generators)
- ## OR:
+
+### Note Tool:
+1. Go to **Tools → Dincrid → Function Runner** in the main menu  
+or press **Alt + R**
+
+2. Click on Search input field or Press **Tab** to start search
+3. Find your first method (Example: "TheNote" in Static Methods ) 
+4. Add it by pressing **[+]** button or hit **Enter**
+5. (Optional) Assign parameters for method (Example: The Note / The Object)
+6. Run it by pressing on the function
+
+### Bookmark Tool:
  1. Open Tool: [Alt] + [R] (Tools>Dincrid Games>Function Runner)
  2. Hit [Tab] - Search
  3. Search for "TheBookMark" in [Static Methods]
@@ -23,9 +29,12 @@ https://github.com/Dincrid/Documentations/blob/main/Function%20Runner%20-%20Tool
  5. Copy added method several times with: [Ctrl+D] x5
  6. **Done!**. Bookmarks tool completed. 
  Assign the web path like: "www.Google.com" or local: "C:/SomeFolder" or "C:/SomeFolder/SomeFile.txt". Click on big button with method name to jump into the given path
-
-*This is lazy start. I highly recommend to check Example scebe in Example Folder*
-
+### More Info:
+ ... for more info and examples open demo scene. Find "ReadMe" game object. Expand Childs > and follow tutorial guide.
+ Create step by step 3 tools withing 5-10 minutes:
+ 1. **Bookmark Tool** (Allows to save your web-site or local drive paths and open them) 
+ 2. **Notes Tool** ( Notes with messages, object pinging, urgency)
+ 3. **2D World Builder** ( Handles Managing and Drawing 2D-Cubes in 2D-World with different brushes, with different sizes, methods, fillers, generators)
 ---
 
 ## 🧭 1. Overview
@@ -48,11 +57,13 @@ Assets/Dincrid Games/Function Runner/
 - `Documentation/` – this user guide  
 ---
 
-## 🌈 3. Opening the Tool Window
+## 🎥 3. Videos
 
-Go to **Tools → Dincrid → Function Runner** in the main menu  
-or press the default hotkey:
-**Alt + R**
+Overview:
+https://youtu.be/ve9zq-dZSRE
+
+How to use:
+https://youtu.be/dzPJ5AL1xsQ
 
 ---
 
@@ -89,7 +100,7 @@ Use [Alt] + [WASD] to navigate through search results and search type
 
 ---
 
-## 🌈 6. Parameter Support
+## 🌈 6. Parameters Support
 
 Parameter system supports the following types:
 
